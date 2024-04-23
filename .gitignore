@@ -1,0 +1,11 @@
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Robot Framework test
+robotTests/log.html
+robotTests/output.xml
+robotTests/report.html
+robotTests/selenium-screenshot*
