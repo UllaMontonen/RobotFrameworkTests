@@ -1,13 +1,15 @@
 # Robot Framework testaus seminaarityönä
 
+TYÖN ALLA
+
 ## Taustaa
-Tekijä: Ulla Montonen
-
-Tämä seminaarityö on luotu Haaga-Helian Ammattikorkeakoulun kurssille Ohjelmistokehityksen Teknologiat. Kyseessä on kurssin lopputyö, jonka aiheen sain itse valita. Lopputyössa tutustuin tarkemmin Robot Framework testaukseen ja loin testitapaukset Ohjelmistoprojekti 2 -kurssin lopputyölleni. Alkuperäinen Robot Framework koodini löytyy myös tämän projektin repositiosta: LINKKI. Koodi on kokonaan minun kirjoittamaani eikä kirjoituksen apuna ole käytetty tutoriaaleja. Robot Framework testauksen oppeihin syvennyin Udemyn kurssilla "Robot Framework Test Automation - Level 2", jonka opettajana toimii Bryan Lamb. LINKKI
-
+Tämän seminaarityön on luonut Ulla Montonen Haaga-Helian Ammattikorkeakoulun kurssille Ohjelmistokehityksen Teknologiat. Kyseessä on kurssin lopputyö, jossa tutustuin tarkemmin Robot Framework testaukseen. Testitapaukset on luotu Ohjelmistoprojekti 2 -kurssin lopputyölleni. Alkuperäinen Robot Framework koodini löytyy myös tämän projektin repositiosta: LINKKI. Koodi on kokonaan minun kirjoittamaani eikä kirjoituksen apuna ole käytetty tutoriaaleja. Robot Framework testauksen oppeihin syvennyin Udemyn kurssilla "Robot Framework Test Automation - Level 2", jonka opettajana toimii Bryan Lamb. LINKKI
 
 ## Tiivistelmä
-Anna halutessasi lyhyt mutta kattava kuva tekemästäsi aiheesta. Noin 10-20 riviä tekstiä esim. kahdessa tai kolmessa kappaleessa. Tavoite/motivaatio työn takana, käytetyt me-netelmät/otetut askeleet ja lopuksi tärkeimmät tulokset.
+End-to-end -testaus on kiinnostanut minua aina ja Robot Frameworkiin sain ensikosketukseni Haaga-Helian Ohjelmistotestaus-kurssilla, jossa aihetta sivuttiin. Halusin syventyä aiheeseen ja pystyä rakentamaan kattavan testikokonaisuuden toisen kurssin projektillemme. Tarkoituksena oli testata projektin HTTP-menetelmiä ja REST-rajapinnan toimivuutta. 
+
+
+* Anna halutessasi lyhyt mutta kattava kuva tekemästäsi aiheesta. Noin 10-20 riviä tekstiä esim. kahdessa tai kolmessa kappaleessa. Tavoite/motivaatio työn takana, käytetyt me-netelmät/otetut askeleet ja lopuksi tärkeimmät tulokset.
 
 ## 1. Johdanto
 * Johdanto tai tausta työllesi, tutkimuksen tarkoitus ja mahdolliset selvitettävät tutkimusky-symykset tai tavoitteet.
@@ -30,7 +32,9 @@ MUITA VINKKEJÄ:
 
 
 ## 3. Arkkitehtuurikaavio
+Projekti on rakennettu käyttäen Robot Frameworkille olennaista rakennetta, jossa testit on jaettu tests-kansion alle, resources-tiedosto löytyy samannimisen kansion alta ja testiraportit tallennetaan reports kansioon.
 
+KUVA
 
 ## 4. Oppimisen pohdinta
 
