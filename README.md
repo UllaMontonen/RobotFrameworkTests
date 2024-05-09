@@ -2,6 +2,33 @@
 
 TYÖN ALLA
 
+<details>
+  <summary>Seminaarityön sisällysluettelo</summary>
+  <ul>
+    <li><a href="#taustaa">Taustaa</a></li>
+    <li><a href="#tiivistelmä">Tiivistelmä</a></li>
+    <li><a href="#1-johdanto">1. Johdanto</a></li>
+    <li><a href="#2-käytetyt-tekniikat">2. Käytetyt tekniikat</a>
+        <ul><li><a href="#21-robot-framework">2.1. Robot Framework</a></li></ul>
+        <ul><li><a href="#22-selenium-library">2.2. Selenium Library</a></li></ul>
+    </li>
+    <li><a href="#3-testattava-käyttöjärjestelmä">3. Testattava käyttöjärjestelmä</a></li>
+    <li><a href="#4-testit">4. Testit</a>
+    <ul><li><a href="#41-testien-kirjoitus">4.1. Testien kirjoitus</a></li></ul>
+        <ul><li><a href="#42-resource-tiedosto">4.2. Resource-tiedosto</a></li></ul>
+        <ul><li><a href="#43-raportit">4.3. Raportit</a></li></ul>
+    </li>
+    <li><a href="#5-arkkitehtuurikaavio">5. Arkkitehtuurikaavio</a></li>
+    <li><a href="#6-oppimisen-pohdinta">6. Oppimisen pohdinta</a>
+    <ul><li><a href="#61-omat-huomiot">6.1. Omat huomiot</a></li></ul>
+        <ul><li><a href="#62-xpath-määritelmän-käyttö-tärkeänä-oppina">6.2. Xpath-määritelmän käyttö tärkeänä oppina</a></li></ul>
+        <ul><li><a href="#63-opit-koskien-kansiorakennetta">6.3. Opit koskien kansiorakennetta</a></li></ul>
+    </li>
+    <li><a href="#7-jatkokehitys">7. Jatkokehitys</a></li>
+  </ul>
+</details>
+
+
 ## Taustaa
 Tämän seminaarityön on luonut Ulla Montonen Haaga-Helian Ammattikorkeakoulun kurssille Ohjelmistokehityksen Teknologiat. Kyseessä on kurssin lopputyö, jossa tutustuin tarkemmin Robot Framework testaukseen. Testitapaukset on luotu Ohjelmistoprojekti 2 -kurssin lopputyölle, jota työstin yhdessä neljän muun hengen kanssa keväällä 2024. Linkki projektiin löytyy tästä: [TimeManagement software](https://github.com/TeamRed-Ohjelmistoprojekti2/TimeManagement).  Alkuperäinen Robot Framework koodini löytyy myös kyseisen projektin repositiosta: [RobotTest-kansio](https://github.com/TeamRed-Ohjelmistoprojekti2/TimeManagement/tree/main/TimeManagementFE/robotTests). Olen lisännyt kopion testituloksineen myös tähän repoon, kansioon RobotTest. Testituloksia ei yleensä viedä repoon, mutta koska kyseessä on kouluprojekti niin kyseiset tiedot löytyvät tämän repon Reports-kanison takaa.
 
