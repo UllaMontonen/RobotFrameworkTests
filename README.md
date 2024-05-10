@@ -18,7 +18,7 @@ TYÖN ALLA
         <ul><li><a href="#42-resource-tiedosto">4.2. Resource-tiedosto</a></li></ul>
         <ul><li><a href="#43-raportit">4.3. Raportit</a></li></ul>
     </li>
-    <li><a href="#5-arkkitehtuurikaavio">5. Arkkitehtuurikaavio</a></li>
+    <li><a href="#5-arkkitehtuuri">5. Arkkitehtuuri</a></li>
     <li><a href="#6-oppimisen-pohdinta">6. Oppimisen pohdinta</a>
     <ul><li><a href="#61-omat-huomiot">6.1. Omat huomiot</a></li></ul>
         <ul><li><a href="#62-xpath-määritelmän-käyttö-tärkeänä-oppina">6.2. Xpath-määritelmän käyttö tärkeänä oppina</a></li></ul>
@@ -30,12 +30,12 @@ TYÖN ALLA
 
 
 ## Taustaa
-Tämän seminaarityön on luonut Ulla Montonen Haaga-Helian Ammattikorkeakoulun kurssille Ohjelmistokehityksen Teknologiat. Kyseessä on kurssin lopputyö, jossa tutustuin tarkemmin Robot Framework testaukseen. Testitapaukset on luotu Ohjelmistoprojekti 2 -kurssin lopputyölle, jota työstin yhdessä neljän muun hengen kanssa keväällä 2024. Linkki projektiin löytyy tästä: [TimeManagement software](https://github.com/TeamRed-Ohjelmistoprojekti2/TimeManagement).  Alkuperäinen Robot Framework koodini löytyy myös kyseisen projektin repositiosta: [RobotTest-kansio](https://github.com/TeamRed-Ohjelmistoprojekti2/TimeManagement/tree/main/TimeManagementFE/robotTests). Olen lisännyt kopion testituloksineen myös tähän repoon, kansioon RobotTest. Testituloksia ei yleensä viedä repoon, mutta koska kyseessä on kouluprojekti niin kyseiset tiedot löytyvät tämän repon Reports-kanison takaa.
+Tämän seminaarityön on luonut Ulla Montonen Haaga-Helian Ammattikorkeakoulun kurssille Ohjelmistokehityksen Teknologiat. Kyseessä on kurssin lopputyö, jossa tutustuin tarkemmin Robot Framework testaukseen. Testitapaukset on luotu Ohjelmistoprojekti 2 -kurssin lopputyölle, jota työstin yhdessä neljän muun hengen kanssa keväällä 2024. Linkki projektiin löytyy tästä: [TimeManagement software](https://github.com/TeamRed-Ohjelmistoprojekti2/TimeManagement). Alkuperäinen Robot Framework koodini löytyy myös kyseisen projektin repositiosta: [RobotTest-kansio](https://github.com/TeamRed-Ohjelmistoprojekti2/TimeManagement/tree/main/TimeManagementFE/robotTests). Olen lisännyt kopion testituloksineen myös tähän repoon, kansioon [RobotTest](/robotTests/). Testituloksia ei yleensä viedä repoon, mutta koska kyseessä on kouluprojekti niin kyseiset tiedot löytyvät tämän repon Reports-kanison takaa.
 
-Robot Framework koodi on kokonaan minun kirjoittamaani eikä kirjoituksen apuna ole käytetty tutoriaaleja. Robot Framework testauksen oppeihin syvennyin Udemyn kurssilla ["Robot Framework Test Automation - Level 2"](https://www.udemy.com/course/robot-framework-2/?couponCode=ST20MT50724), jonka opettajana toimii Bryan Lamb.
+Kyseinen Robot Framework koodi on kokonaan minun kirjoittamaani eikä kirjoituksen apuna ole käytetty tutoriaaleja. Robot Framework testauksen oppeihin syvennyin Udemyn kurssilla ["Robot Framework Test Automation - Level 2"](https://www.udemy.com/course/robot-framework-2/?couponCode=ST20MT50724), jonka opettajana toimii Bryan Lamb.
 
 ## Tiivistelmä
-Haaga-Helian Ohjelmistotestaus-kurssilla, jossa aihetta sivuttiin. Halusin syventyä aiheeseen vielä tarkemmin ja tavoitteenani oli oppia rakentamaan kattava testikokonaisuus toisen kurssin projektillemme. Tarkoituksena oli testata projektin HTTP-menetelmiä ja REST-rajapinnan toimivuutta. 
+End-to-end-testaus on kiinnostanut minua aina ja Robot Frameworkiin sain ensikosketukseni Haaga-Helian Ohjelmistotestaus-kurssilla, jossa aihetta sivuttiin. Halusin syventyä aiheeseen vielä tarkemmin ja tavoitteenani oli oppia rakentamaan kattava testikokonaisuus toisen kurssin projektillemme. Tarkoituksena oli testata projektin HTTP-menetelmiä ja REST-rajapinnan toimivuutta. 
 
 Koodissa on hyödynnetty Robot Frameworkin omien kirjastojen lisäksi Selenium-kirjastoa. Rakensin testit niin lokaalin koodin kuin julkaistun version testaamiseen. Molemmat koodit löytyvät reposta. Koska Ohjelmistoprojekti 2 kurssin julkaistu versio on ajettu alas, ei testHeroku -testejä pysty enää ajamaan, kuitenkin testLocalhost -testit pystyy ajamaan sen jälkeen kun TimeManagement -sovelluksen on asentanut omalle koneelleen.
 
@@ -43,26 +43,29 @@ Onnistuin rakentamaan tavoitteideni mukaisen testikokonaisuuden ja kaikki testit
 
 
 ## 1. Johdanto
-Projektin tarkoituksena oli perehtyä Robot Framework testaukseen tarkemmin ja rakentaa sen avulla testikokonaisuus kehityksen alla olevalle käyttöjärjestelmälle. Tämän avulla pystyin samalla syventämään oppiani, sillä kyseinen käyttöjärjestelmä muuttui matkan varrella ja sitä oli kehittämässä minun lisäkseni neljä muuta henkilöä. Jouduin siis muutamaan testejä matkan varrella koodin kehittyessä ja opin miten tärkeää nimeämiskäytännöt ovat Robot Framework testauksessa.  
+Projektin tarkoituksena oli perehtyä Robot Framework testaukseen tarkemmin ja rakentaa sen avulla testikokonaisuus kehityksen alla olevalle käyttöjärjestelmälle. Tämän avulla pystyin samalla syventämään oppiani, sillä kyseinen käyttöjärjestelmä muuttui matkan varrella ja sitä oli kehittämässä minun lisäkseni neljä muuta henkilöä. Jouduin siis muutamaan testejä kurssin edetessä ja opin miten koodin muuttuminen saattaa vaikuttaa testien toimivuuteen. 
 
-Testien rakenne kehittyi matkan varrella todella paljon ja aluksi testit olivat hyvin yksinkertaisia ja käytössä olleet muutamat variablet ja keywordsit oli samassa tiedostossa testien kanssa. Opin karttuessa pääsin hyödyntämään enemmän variables ja keywords osioita ja ne siirtyivätkin omaan tiedostoon. Käyttöjärjestelmän kehityttyä myös testien laajuus kasvoi. Käyttöjärjestelmää työstettiin sprinteissä ja jokaisen sprintin päätteeksi huolehdin, että testit toimivat ja että ne testaavat uusia kehitettyjä ominaisuuksia. Kaikki kirjoittamani testit menevät läpi onnistuneesti.
+Testien rakenne kehittyi matkan varrella todella paljon ja aluksi testit olivat hyvin yksinkertaisia ja käytössä olleet muutamat variablet ja keywordsit olivat samassa tiedostossa testien kanssa. Opin karttuessa pääsin hyödyntämään enemmän variables ja keywords osioita ja ne siirtyivätkin sitten omaan tiedostoon. Huomasin myös, miten tärkeää on nimetä testit, variablet ja keywordsit kuvaavasti, jotta niiden ylläpito helpottuu. Käyttöjärjestelmän kehityttyä myös testien laajuus kasvoi. Käyttöjärjestelmää työstettiin sprinteissä ja jokaisen sprintin päätteeksi huolehdin, että testit toimivat ja että ne testaavat uusia kehitettyjä ominaisuuksia. Kaikki kirjoittamani testit menevät läpi onnistuneesti.
 
 
 ## 2. Käytetyt tekniikat
-Testien rakennuksessa käytettiin lähinnä Robot Frameworkkia sekä Selenium kirjastoa.
+Testien rakennuksessa käytettiin `Robot Frameworkkia` sekä `Selenium kirjastoa`. Testattava käyttöjärjestelmä rakennettiin `Reactilla`.
 
 
 ## 2.1. Robot Framework
-Ohjeet myös miten testit voidaan tehdä ja mitä vaatii (Python ja pip asennettuna)
+Robot Framework on avainsanapohjainen automaatiokehys, jonka avulla voidaan automatisoida end-to-end testausta. Kyseessä on avoimen lähdekoodin automaatiokehikko, joka perustuu Pythoniin. Koodi kirjoitetaan ihmisystävällisesti, eli sitä lukemalla on helppoa päätellä mitä mikin osio tekee. Testikehyksestä löytyy myös kattava [dokumentaatio](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html). Robot Frameworkiin on tehty myös useita ulkoisia kirjastoja, joita voi asentaa aina omien tarpeiden mukaan. Kirjastoja pystyy myös itse luomaan. Lähde: [RobotFramework.org](https://robotframework.org/)
+
+Robot Frameworkin testien suorittamista varten tarvitaan testien suorittavalle koneelle Python ja pip asennukset. Voit tarkistaa onko koneellasi pip asennettuna antamalla komentoriville komennon `pip –version`. Lisätietoa pip:in asennuksesta löytyy [pip dokumentaatiosta]( https://pip.pypa.io/en/stable/installation/). Voit tarkistaa onko Python jo koneellasi asennettuna komennolla `python --version` tai `python3 --version`. [Pythonin dokumentaatiosta]( https://www.python.org/downloads/) löytyy lisätietoja sen asentamisesta. 
+
 
 ## 2.2. Selenium Library
-
+Tässä projektissa on hyödynnetty Selenium kirjastoa, sillä se on tehokas työkalu web-sovellusten testaamiseen ja sitä on erittäin helppo käyttää. [Kirjaston virallinen dokumentaatio]( https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Locating%20elements) tarjoaa paljon tietoa eri tavoista käyttää kirjastoa. Sieltä löytyy esimerkiksi käskyt klikata linkkiä tai elementtiä ja näissä määritelmissä pystyy käyttämään niin koodin puolelta löytyviä id tai name viittauksia kuin tekstiä, joka näkyy käyttäjälle. Xpath-määritelmiä voi myös käyttää.  Esimerkiksi kirjaston avulla voidaan käyttää helposti pyyntöjä `paina nappia, jossa lukee tallenna` tai `klikkaa elementtiä, joka löytyy tästä polusta`.  Samoin valmiina löytyy lomakkeiden täyttämistä varten tarvittavia toimintoja kuten `input text` tai sivun lukemista varten tarvittavia `page should contain` -toimintoja. Tämä kirjasto soveltui siis hyvin työn alla olleen käyttöjärjestelmän testaamiseen. 
 
 ## 3. Testattava käyttöjärjestelmä
-TimeManagement on käyttöjärjestelmä, jossa käyttäjä voi kirjata työaikakirjauksia projekteille. Käyttäjän tulee rekisteröityä palveluun, jonka jälkeen hän pääsee lisäämään itselleen projekteja ja kirjaamaan työaikakirjauksia niille. Käyttäjä voi myös muokata ja poistaa omia projektejaan ja kirjauksiaan. Jokaiselle projektille voi lisätä muita käyttäjiä ja määritellä minkälaiset käyttöoikeudet heille annetaan. Projektikohtaisina rooleina ovat omistaja, käyttäjä ja seuraaja. Omistajalla on kaikki oikeudet, käyttäjä ei voi muokata tai poistaa projektia, mutta hän voi tehdä projekteille työaikakirjauksia ja seuraaja nimensä mukaisesti pääsee katselemaan tietoja, mutta ei voi lisätä seuraamilleen projekteille työaikakirjauksia. Käyttöjärjestelmä on rakennettu Reactilla.
+TimeManagement on käyttöjärjestelmä, jossa käyttäjä voi kirjata työaikakirjauksia projekteille. Käyttäjän tulee rekisteröityä palveluun, jonka jälkeen hän pääsee lisäämään itselleen projekteja ja kirjaamaan työaikakirjauksia niille. Käyttäjä voi myös muokata ja poistaa omia projektejaan ja kirjauksiaan. Jokaiselle projektille voi lisätä muita käyttäjiä ja määritellä minkälaiset käyttöoikeudet heille annetaan. Projektikohtaisina rooleina ovat omistaja, käyttäjä ja seuraaja. Omistajalla on kaikki oikeudet, käyttäjä ei voi muokata tai poistaa projektia, mutta hän voi tehdä projekteille työaikakirjauksia ja seuraaja nimensä mukaisesti pääsee katselemaan tietoja, mutta ei voi lisätä seuraamilleen projekteille työaikakirjauksia. Käyttöjärjestelmän käyttöliittymä on rakennettu Reactilla.
 
 ## 4. Testit
-
+Tässä osiossa käydään läpi tarkemmin käyttöjärjestelmään kirjoitettuja testejä sekä resource-tiedoston sisältöä. Lopussa käydään myös läpi testien raportointia.
 
 ## 4.1. Testien kirjoitus
 
@@ -74,8 +77,8 @@ TimeManagement on käyttöjärjestelmä, jossa käyttäjä voi kirjata työaikak
 
 
 
-## 5. Arkkitehtuurikaavio
-Projekti on rakennettu käyttäen Robot Frameworkille olennaista projektin rakennetta, jossa testit on sijoitettu tests-kansion alle, resources-tiedosto löytyy samannimisen kansion alta ja testiraportit tallennetaan reports kansioon. Alkuperäisen projektin gitignore-tiedostossa on määritelty, että raportteja ei viedä GitHubiin. Tässä repossa ne kuitenkin ovat poikkeuksellisesti mukana.
+## 5. Arkkitehtuuri
+Projekti on rakennettu käyttäen Robot Frameworkille olennaista projektin rakennetta, jossa testit on sijoitettu tests-kansion alle, resources-tiedosto löytyy samannimisen kansion alta ja testiraportit tallennetaan reports-kansioon. Alkuperäisen projektin gitignore-tiedostossa on määritelty, että raportteja ei viedä GitHubiin. Tässä repossa ne kuitenkin ovat poikkeuksellisesti mukana.
 
 
 ## 6. Oppimisen pohdinta
