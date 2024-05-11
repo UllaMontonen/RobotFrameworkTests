@@ -23,7 +23,7 @@
         <ul><li><a href="#63-opit-koskien-kansiorakennetta">6.3. Opit koskien kansiorakennetta</a></li></ul>
     </li>
     <li><a href="#7-jatkokehitys">7. Jatkokehitys</a></li>
-    <li><a href="#8-hteenveto">8. Yhteenveto</a></li>
+    <li><a href="#8-yhteenveto">8. Yhteenveto</a></li>
   </ul>
 </details>
 
