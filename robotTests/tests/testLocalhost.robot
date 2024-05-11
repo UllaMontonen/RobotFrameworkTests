@@ -114,7 +114,7 @@ Deleting the first entry
     Page Contain Entry Deletion Warning
     Click Delete Entry Button
     Wait Page Contain Successful Deletion
-    Sleep    1s
+    #Sleep    1s
 
 Deleting a project
     [Tags]    project   delete
@@ -123,7 +123,7 @@ Deleting a project
     Page Contain Project Deletion Warning
     Click Delete Project Button
     Wait Page Contain Project Successful Deletion
-    Sleep    1s
+    #Sleep    1s
 
 Editing user's own derails
     [Documentation]    Adding a character 1 at the end of the first name
@@ -134,7 +134,7 @@ Editing user's own derails
     Add Test User's Current Password to Input Section
     Click Save Button
     Page Contain User Info Saved Successfully
-    Sleep    1s
+    #Sleep    1s
 
 Testing logging out function
     [Tags]    logout
