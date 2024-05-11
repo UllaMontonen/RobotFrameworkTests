@@ -5,8 +5,8 @@ To perform testing, you need the following installations on your own machine: Py
 Install robotframework on your machine using pip command: pip install robotframework
 Install the SeleniumLibrary library: pip install robotframework-seleniumlibrary
 
-Run the tests using the command: robot --name HerokuTest -d reports tests/testHeroku.robot
-Or Or python -m robot --name HerokuTest -d reports tests/testHeroku.robot
+Run the tests using the command: robot --name HerokuTest -d robotTests/reports robotTests/tests/testHeroku.robot
+Or Or python -m robot --name HerokuTest -d robotTests/reports robotTests/tests/testHeroku.robot
 
 
 *** Settings ***
@@ -25,7 +25,7 @@ Login to Heroku and GitHub Page
     Page Contain Heroku Test User's name
 
 Adding a new project after logged in
-    [Tags]    postproject
+    [Tags]    project   post
     Navigate to Projects Page
     Click Add Project Button
     Add Title to Project Input Section
@@ -34,7 +34,7 @@ Adding a new project after logged in
 
 Editing an existing project title
     [Documentation]    Editing the title of the project
-    [Tags]    putproject
+    [Tags]    project   put
     Click Edit Button
     Edit Project Title
     Click Save All Changes Button
@@ -42,7 +42,7 @@ Editing an existing project title
 
 Adding a user to the project with role user
     [Documentation]    User will have the role user
-    [Tags]    putproject
+    [Tags]    project   role
     # Navigate to Projects Page
     Click Edit Button
     Add Username to Project input section in Heroku
@@ -51,7 +51,7 @@ Adding a user to the project with role user
     Page Contain Project Successful Edition
 
 Editing a user role from user to viewer
-    [Tags]    putproject
+    [Tags]    project   role
     # Navigate to Projects Page
     Click Edit Button
     Choose the Second User from the List
@@ -61,7 +61,7 @@ Editing a user role from user to viewer
     Page Contain Project Successful Edition
 
 Deleting the user from the project
-    [Tags]    deleteuser
+    [Tags]    project   role
     # Navigate to Projects Page
     Click Edit Button
     Choose the Option to remove the Second User from the Project
@@ -69,13 +69,13 @@ Deleting the user from the project
     Page Contain Project Successful Edition
 
 Checking that Project don't have other users
-    [Tags]    deleteuser
+    [Tags]    project   role
     Click Edit Button
     Page Contain Does not have Other Users
     Click Cancel Button
 
 Adding a new entry to RobotTest project
-    [Tags]    postentry
+    [Tags]    entry   post
     Navigate to Entries Page
     Click Add Entry Button
     Choose Project for Added Entry
@@ -86,7 +86,7 @@ Adding a new entry to RobotTest project
 
 Editing an existing entry
     [Documentation]    Editing entry's comment
-    [Tags]    putentry
+    [Tags]    entry   put
     # Navigate to Entries Page
     Click Edit Button
     Edit Entry's comment
@@ -94,7 +94,7 @@ Editing an existing entry
     Page Contain Entry Successful Saved
 
 Deleting the first entry
-    [Tags]    deleteentry
+    [Tags]    entry   delete
     # Navigate to Entries Page
     Click Delete Button
     Page Contain Entry Deletion Warning
@@ -102,7 +102,7 @@ Deleting the first entry
     Wait Page Contain Successful Deletion
 
 Deleting a project
-    [Tags]    deleteproject
+    [Tags]    project   delete
     Navigate to Projects Page
     Click Delete Button
     Page Contain Project Deletion Warning

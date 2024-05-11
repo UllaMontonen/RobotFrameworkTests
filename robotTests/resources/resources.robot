@@ -153,6 +153,9 @@ Page Contain Heroku Test User's name
     [Documentation]    Checking that showing first and last names
     Page Should Contain    Hei Robot Framework
 
+Page Contain Localhost Test User's name 
+    Page Should Contain    Hei Robotti Testaaja
+
 Page Contain Project Deletion Warning
     Page Should Contain    Haluatko varmasti poistaa kyseisen projektin?
 
@@ -161,9 +164,6 @@ Page Contain Project Successful Edition
 
 Page Contain Successful Logout
     Page Should Contain    Sinut on kirjattu ulos
-
-Page Contain Text Hei
-    Page Should Contain    Hei
 
 Page Contain User Info Saved Successfully
     Page Should Contain    Tiedot tallennettu onnistuneesti

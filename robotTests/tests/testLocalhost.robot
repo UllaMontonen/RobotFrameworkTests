@@ -7,10 +7,10 @@ Install the SeleniumLibrary library: pip install robotframework-seleniumlibrary
 
 Start both the backend and frontend before running tests
 
-Run the tests using the command: robot --name LocalhostTest -d reports tests/testLocalhost.robot
-Or python -m robot --name LocalhostTest -d reports tests/testLocalhost.robot
+Run the tests using the command: robot --name LocalhostTest -d robotTests/reports robotTests/tests/testLocalhost.robot
+Or python -m robot --name LocalhostTest -d robotTests/reports robotTests/tests/testLocalhost.robot
 
-Run tests with a specific tag: robot --name tagUsed -d reports -i tagName tests/testLocalhost.robot
+Run tests with a specific tag: robot --name tagUsed -d robotTests/reports -i tagName robotTests/tests/testLocalhost.robot
 
 
 *** Settings ***
@@ -22,7 +22,7 @@ Resource            ../Resources/resources.robot
 
 *** Test Cases ***
 Registerin a new user
-    [Tags]    register    role
+    [Tags]    registration
     Open Browser and Navigate to Localhost
     Click Register Button
     Add Username to Registration Input Section
@@ -34,14 +34,14 @@ Registerin a new user
     # sleep    2s
 
 Login to the TimeManagement service
-    [Tags]    login    role
+    [Tags]    login
     # open Browser and Navigate to Localhost
     Login With Localhost Test User Credentials
     Click Login Button
-    Page Contain Text Hei
+    Page Contain Localhost Test User's name 
 
 Adding a new project after logged in
-    [Tags]    postproject    role
+    [Tags]    project   post
     Navigate to Projects Page
     Click Add Project Button
     Add Title to Project Input Section
@@ -50,7 +50,7 @@ Adding a new project after logged in
 
 Editing an existing project title
     [Documentation]    Editing the title of the project
-    [Tags]    putproject
+    [Tags]    project   put
     Click Edit Button
     Edit Project Title
     Click Save All Changes Button
@@ -58,7 +58,7 @@ Editing an existing project title
 
 Adding a user to the project with role user
     [Documentation]    User will have the role user
-    [Tags]    putproject    role
+    [Tags]    project    role   
     # Navigate to Projects Page
     Click Edit Button
     Add Username to Project input section in Localhost
@@ -67,7 +67,7 @@ Adding a user to the project with role user
     Page Contain Project Successful Edition
 
 Editing a user role from user to viewer
-    [Tags]    putproject    role
+    [Tags]    project    role
     # Navigate to Projects Page
     Click Edit Button
     Choose the Second User from the List
@@ -77,7 +77,7 @@ Editing a user role from user to viewer
     Page Contain Project Successful Edition
 
 Deleting the user from the project
-    [Tags]    deleteuser    role
+    [Tags]    project    role
     # Navigate to Projects Page
     Click Edit Button
     Choose the Option to remove the Second User from the Project
@@ -85,13 +85,13 @@ Deleting the user from the project
     Page Contain Project Successful Edition
 
 Checking that Project don't have other users
-    [Tags]    deleteuser
+    [Tags]    project    role
     Click Edit Button
     Page Contain Does not have Other Users
     Click Cancel Button
 
 Adding a new entry to RobotTest project
-    [Tags]    postentry
+    [Tags]    entry   post
     Navigate to Entries Page
     Click Add Entry Button
     Choose Project for Added Entry
@@ -102,24 +102,24 @@ Adding a new entry to RobotTest project
 
 Editing an existing entry
     [Documentation]    Editing entry's comment
-    [Tags]    putentry
+    [Tags]    entry   put
     # Navigate to Entries Page
     Click Edit Button
     Edit Entry's comment
     Click Save Button
     Page Contain Entry Successful Saved
 
- Deleting the first entry
-    [Tags]    deleteentry
+Deleting the first entry
+    [Tags]    entry   delete
     # Navigate to Entries Page
     Click Delete Button
     Page Contain Entry Deletion Warning
     Click Delete Entry Button
     Wait Page Contain Successful Deletion
-    # Sleep    2s
+    Sleep    2s
 
 Deleting a project
-    [Tags]    deleteproject
+    [Tags]    project   delete
     Navigate to Projects Page
     Click Delete Button
     Page Contain Project Deletion Warning
@@ -129,7 +129,7 @@ Deleting a project
 
 Editing user's own derails
     [Documentation]    Adding a character 1 at the end of the first name
-    [Tags]    user
+    [Tags]    user   put
     Navigate to User Detail's Page
     Click Edit Info Button
     Edit User's First Name
@@ -139,7 +139,7 @@ Editing user's own derails
     # Sleep    2s
 
 Testing logging out function
-    [Tags]    logout    role
+    [Tags]    logout
     Navigate to Logout Page
     Page Contain Successful Logout
 
